@@ -4,9 +4,8 @@ import { decrement, increment, incrementAsync, incrementByAmount } from './count
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import UpdateIcon from '@mui/icons-material/Update';
-import Button, { ButtonProps } from '@mui/material/Button';
-import { styled } from '@mui/system';
-import { TextField } from '@mui/material';
+import { CounterButton, AddButton } from '../../components/Button';
+import { AmountInputField } from '../../components/Form';
 
 const Counter = () => {
   const count = useAppSelector(state => state.counter.value);
@@ -20,32 +19,6 @@ const Counter = () => {
   }
   const handleAddAmount = () => dispatch(incrementByAmount(Number(incrementAmount) || 0));
   const handleIncrementAsync = () => dispatch(incrementAsync(Number(incrementAmount) || 0));
-
-  const CounterButton = styled(Button)<ButtonProps>(() => ({
-    marginTop: '0.5rem',
-    marginBottom: '0.5rem',
-    marginLeft: '2rem',
-    marginRight: '2rem'
-  }));
-
-  const AddButton = styled(Button)<ButtonProps>(() => ({
-    marginTop: '1rem',
-    marginBottom: '0.5rem',
-    marginLeft: '1rem',
-  }));
-
-  const AmountInputField = styled(TextField)(() => ({
-    '& .MuiOutlinedInput-root': {
-      '& fieldset': {
-        borderColor: 'purple'
-      }
-    },
-    '& .Mui-focused fieldset': {
-      borderColor: 'blue',
-    },
-    marginTop: '0.5rem',
-    width: '5rem'
-  }))
 
   return (
     <div>
